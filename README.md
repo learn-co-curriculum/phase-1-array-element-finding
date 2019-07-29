@@ -8,7 +8,7 @@
 ## Introduction
 
 As developers, one of the things we need to do on a regular basis is locate
-things in in array. It's all well and good to be able to store data as
+things in arrays. It's all well and good to be able to store data as
 developers, but it's pretty useless unless we're able to get it back out again.
 In JavaScript, there are two different methods that we use to locate data in
 arrays. For a more simple solution, we use `Array.prototype.indexOf()`. For more
