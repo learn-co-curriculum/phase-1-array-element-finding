@@ -2,8 +2,8 @@
 
 ## Learning Goals
 
-- Find elements in a simple array with `Array.prototype.indexOf()` 
-- Find elements in a more complex array with `Array.prototype.find()`
+- Find elements using a simple condition with `Array.prototype.indexOf()` 
+- Find elements using more complex conditions with `Array.prototype.find()`
 
 ## Introduction
 
@@ -11,10 +11,10 @@ As developers, one of the things we need to do on a regular basis is locate
 things in arrays. It's all well and good to be able to store data as
 developers, but it's pretty useless unless we're able to get it back out again.
 In JavaScript, there are two different methods that we use to locate data in
-arrays. For a more simple solution, we use `Array.prototype.indexOf()`. For more
+arrays. For a more simple condition, we use `Array.prototype.indexOf()`. For more
 complex calculations, we use `Array.prototype.find()`.
 
-## Find Elements in a Simple Array with `Array.prototype.indexOf()`
+## Find Elements Using a Simple Condition with `Array.prototype.indexOf()`
 
 `Array.prototype.indexOf()` depends on one required parameter, and one optional
 parameter. It compares the elements using the strict equality operator (===) and
@@ -43,7 +43,7 @@ However, if you pass in a start position that is after the element that you're
 looking for, or if the element that you are looking for is not in the array,
 `Array.prototype.indexOf()` will return `-1` to let you know.
 
-## Find Elements in a More Complex Array with `Array.prototype.find()`
+## Find Elements Using More Complex Conditions with `Array.prototype.find()`
 
 `Array.prototype.find()` refers to a function to execute on each value in the
 array, taking in three arguments.
@@ -60,9 +60,10 @@ console.log([4, 5, 7, 8, 10].find(isOdd)); // 5
 console.log([4, 7, 5,  8, 10].find(isOdd)); // 7
 ```
 
-`Array.prototype.find()` takes in the element we'd like to find, the index at
-which we'd like to start, and the array, and returns the first element in the
-array satisfies the condition specifies the condition specified by the function. 
+`Array.prototype.find()` takes a callback and passes three arguments to it: 
+the current element of the array, the index of the current element, and the array 
+itself. It returns the first element in the array that satisfies the condition 
+specified by the function, or -1 if a matching element is not found.
 
 ## Conclusion
 
