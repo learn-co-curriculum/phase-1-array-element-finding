@@ -2,73 +2,115 @@
 
 ## Learning Goals
 
-- Find elements using a simple condition with `Array.prototype.indexOf()` 
+- Find elements using a simple condition with `Array.prototype.indexOf()`
 - Find elements using more complex conditions with `Array.prototype.find()`
 
 ## Introduction
 
 As developers, one of the things we need to do on a regular basis is locate
-things in arrays. It's all well and good to be able to store data as
-developers, but it's pretty useless unless we're able to get it back out again.
-In JavaScript, there are two different methods that we use to locate data in
-arrays. For a more simple condition, we use `Array.prototype.indexOf()`. For more
-complex calculations, we use `Array.prototype.find()`.
+things in arrays. It's all well and good to be able to store data, but it's
+pretty useless unless we're able to get it back out again. In JavaScript, there
+are two different methods that we use to locate data in arrays. For simple
+conditions, we use `Array.prototype.indexOf()`. For more complex calculations,
+we use `Array.prototype.find()`.
 
 ## Find Elements Using a Simple Condition with `Array.prototype.indexOf()`
 
-`Array.prototype.indexOf()` depends on one required parameter, and one optional
-parameter. It compares the elements using the strict equality operator (===) and
-returns the index of the matching element.
+`Array.prototype.indexOf()` is called on an array and takes two arguments: the
+value you are looking for and a start position; the second argument is optional.
+It compares each element in turn to the value you're looking for using the
+strict equality operator (===) and returns the index of the first matching
+element. If the element isn't contained in the array, it returns -1.
 
 ```js
 
-let cards = ['queen of hearts', 'jack of clubs', 'ten of diamonds', 'ace of spades'];
+const cards = ['queen of hearts', 'jack of clubs', 'ten of diamonds', 'ace of spades'];
 
-console.log(cards.indexOf('jack of clubs')); //1
+cards.indexOf('jack of clubs'); //=> 1
+cards.indexOf('jack of hearts'); //=> -1
 
 ```
 
-The first parameter, the _item_ that you are looking for, is required. You can
-also pass in the _start_ position like so:
+If you pass in the optional second argument, `indexOf()` will begin the search
+at the specified position:
 
 ```js
 
-let cards = ['queen of hearts', 'jack of clubs', 'ten of diamonds', 'ace of spades'];
-
-console.log(cards.indexOf('jack of clubs', 2  )); // -1 
+cards.indexOf('ace of spades', 2); //=> 3
+cards.indexOf('jack of clubs', 2); //=> -1 
 
 ```
 
-However, if you pass in a start position that is after the element that you're
-looking for, or if the element that you are looking for is not in the array,
-`Array.prototype.indexOf()` will return `-1` to let you know.
+`Array.prototype.indexOf()` returns `-1` if either the value isn't found _or_ if
+the start position you pass in is after the element you're looking for.
 
 ## Find Elements Using More Complex Conditions with `Array.prototype.find()`
 
-`Array.prototype.find()` refers to a function to execute on each value in the
-array, taking in three arguments.
+`Array.prototype.find()` allows you to execute more complex searches by passing
+it a callback function. The method will automatically iterate through the array,
+call the callback on each value, and return the first element in the array that
+satisfies the condition defined by the function. If no matching element is
+found, `undefined` is returned.
+
+`Array.propotype.find()` iterates through the array it's called on and, in each
+iteration, passes three arguments to the callback: the current element of the
+array, the index of the current element, and the array itself. These arguments
+can then be captured as parameters in the callback and used inside the function.
+
+Say we want to determine whether an array of numbers contains any odd values.
+We can write the following function to do this:
 
 ```js
 
 function isOdd(element, index, array) {
-  return (element %2 === 1);
+  return (element % 2 === 1);
 }
 
-console.log([4, 6, 8, 10].find(isOdd)); // undefined, not found
-console.log([4, 5, 8, 10].find(isOdd)); // 5
-console.log([4, 5, 7, 8, 10].find(isOdd)); // 5
-console.log([4, 7, 5,  8, 10].find(isOdd)); // 7
 ```
 
-`Array.prototype.find()` takes a callback and passes three arguments to it: 
-the current element of the array, the index of the current element, and the array 
-itself. It returns the value of the first element in the array that satisfies the condition specified by the function. Otherwise, undefined is returned.
+Remember that `Array.prototype.find()` _automatically_ passes the three
+arguments to our function. By defining `isOdd()` with three parameters, we make
+those values available inside our function. In this example, we're only using
+the first one, the current element of the array, but all three are being passed
+in and are available inside our function if we want to use them.
+
+We can then call `.find()` on the array we want to search, and pass our function
+as an argument:
+
+```js
+
+function isOdd(element, index, array) {
+  return (element % 2 === 1);
+}
+
+[4, 6, 8, 10].find(isOdd); //=> undefined, not found
+[4, 5, 8, 10].find(isOdd); //=> 5
+[4, 5, 7, 8, 10].find(isOdd); //=> 5
+[4, 7, 5,  8, 10].find(isOdd); //=> 7
+
+```
+
+Note that only the first argument — the current element in the array — is
+required. If (as in our example above) your callback function doesn't use the
+other two arguments, you can define your function with only one parameter:
+
+```js
+
+function isOdd(element) {
+  return (element % 2 === 1);
+}
+
+```
 
 ## Conclusion
 
 Both `Array.prototype.indexOf()`and `Array.prototype.find()` can be very useful
-in different situations. With practice, you'll be able to determine which
-solution applies to your problem at hand.
+in different situations. `Array.prototype.indexOf()` is used when you want to
+check an array for a simple value; you call `indexOf()` on an array, passing the
+value you're looking for as the argument. `Array.prototype.find()` is also
+called on an array, but it takes a _function_ as an argument. This enables you
+to define the condition the element should meet, allowing for more complex
+searches.
 
 ## Resources
 
