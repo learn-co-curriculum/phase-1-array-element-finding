@@ -69,8 +69,8 @@ function isOdd(element, index, array) {
 
 ```
 
-`Array.prototype.find()` iterates through the array, passing each element in turn 
-to `isOdd()`. If the element is not odd, the callback returns `false` and the 
+`Array.prototype.find()` will iterate through the array, passing each element in 
+turn to `isOdd()`. If the element is not odd, the callback returns `false` and the 
 iteration continues. If an odd element is encountered, the callback will return 
 true, and `Array.prototype.find()` will return that element.
 
@@ -80,7 +80,7 @@ those values available inside our function. In this example, we're only using
 the first one, the current element of the array, but all three are being passed
 in and are available inside our function if we want to use them.
 
-We can then call `.find()` on the array we want to search, and pass our function
+Let's call `.find()` on the array we want to search, and pass our function
 as an argument:
 
 ```js
@@ -97,8 +97,9 @@ function isOdd(element, index, array) {
 ```
 
 Note that only the first argument — the current element in the array — is
-required. If (as in our example above) your callback function doesn't use the
-other two arguments, you can define your function with only one parameter:
+required for the callback function. If (as in our example above) your 
+callback doesn't use the other two arguments, you can define your 
+function with only one parameter. This will work as well:
 
 ```js
 
