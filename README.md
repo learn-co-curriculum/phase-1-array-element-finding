@@ -18,9 +18,10 @@ we use `Array.prototype.find()`.
 
 `Array.prototype.indexOf()` is called on an array and takes two arguments: the
 value you are looking for and a start position; the second argument is optional.
-It compares each element in turn to the value you're looking for using the
-strict equality operator (===) and returns the index of the first matching
-element. If the element isn't contained in the array, it returns -1.
+`Array.prototype.indexOf()` compares each element in turn to the value you're 
+looking for using the strict equality operator (===) and returns the index of 
+the first matching element. If the element isn't contained in the array, it 
+returns -1.
 
 ```js
 
@@ -52,13 +53,13 @@ call the callback on each value, and return the first element in the array that
 satisfies the condition defined by the function. If no matching element is
 found, `undefined` is returned.
 
-`Array.propotype.find()` iterates through the array it's called on and, in each
+`Array.prototype.find()` iterates through the array it's called on and, in each
 iteration, passes three arguments to the callback: the current element of the
 array, the index of the current element, and the array itself. These arguments
 can then be captured as parameters in the callback and used inside the function.
 
 Say we want to determine whether an array of numbers contains any odd values.
-We can write the following function to do this:
+We can write the following callback function to do this:
 
 ```js
 
@@ -67,6 +68,11 @@ function isOdd(element, index, array) {
 }
 
 ```
+
+`Array.prototype.find()` iterates through the array, passing each element in turn 
+to `isOdd()`. If the element is not odd, the callback returns `false` and the 
+iteration continues. If an odd element is encountered, the callback will return 
+true, and `Array.prototype.find()` will return that element.
 
 Remember that `Array.prototype.find()` _automatically_ passes the three
 arguments to our function. By defining `isOdd()` with three parameters, we make
