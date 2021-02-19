@@ -1,4 +1,4 @@
-# Array Element Finding
+# Finding Array Elements
 
 ## Learning Goals
 
