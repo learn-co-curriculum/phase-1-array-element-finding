@@ -19,7 +19,7 @@ we use `Array.prototype.find()`.
 `Array.prototype.indexOf()` is called on an array and takes two arguments: the
 value you are looking for and an optional start position. It compares each
 element in turn to the value you're looking for using the strict equality
-operator (===) and returns the index of the first matching element. If the
+operator (`===`) and returns the index of the first matching element. If the
 element isn't contained in the array, it returns -1.
 
 ```js
@@ -41,8 +41,9 @@ cards.indexOf('jack of clubs', 2); //=> -1
 
 ```
 
-`Array.prototype.indexOf()` returns `-1` if either the value isn't found _or_ if
-the start position you pass in is after the element you're looking for.
+In this case, `Array.prototype.indexOf()` returns `-1` if either the value isn't
+found _or_ if the start position you pass in is after the element you're looking
+for.
 
 ## Find Elements Using More Complex Conditions with `Array.prototype.find()`
 
