@@ -17,11 +17,10 @@ we use `Array.prototype.find()`.
 ## Find Elements Using a Simple Condition with `Array.prototype.indexOf()`
 
 `Array.prototype.indexOf()` is called on an array and takes two arguments: the
-value you are looking for and a start position; the second argument is optional.
-`Array.prototype.indexOf()` compares each element in turn to the value you're 
-looking for using the strict equality operator (===) and returns the index of 
-the first matching element. If the element isn't contained in the array, it 
-returns -1.
+value you are looking for and an optional start position. It compares each
+element in turn to the value you're looking for using the strict equality
+operator (===) and returns the index of the first matching element. If the
+element isn't contained in the array, it returns -1.
 
 ```js
 
